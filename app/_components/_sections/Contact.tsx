@@ -9,7 +9,13 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { toast } from "react-toastify";
+import { onClickCopy, openNewTab, toastify } from "@/utils/common";
 const Contact = () => {
+  const onSubmit = () => {
+    toastify("메세지가 전송되었습니다.");
+  };
+
   return (
     <section id="contact" className="py-24 bg-slate-50 dark:bg-slate-900">
       <div className="container mx-auto px-4">
@@ -45,8 +51,11 @@ const Contact = () => {
                   </div>
                   <div>
                     <div className="font-medium">이메일</div>
-                    <div className="text-slate-600 dark:text-slate-300">
-                      contact@example.com
+                    <div
+                      onClick={() => onClickCopy("wjbbdq1223@naver.com")}
+                      className="text-slate-600 dark:text-slate-300 hover:underline cursor-pointer"
+                    >
+                      wjbbdq1223@naver.com
                     </div>
                   </div>
                 </div>
@@ -56,8 +65,11 @@ const Contact = () => {
                   </div>
                   <div>
                     <div className="font-medium">전화번호</div>
-                    <div className="text-slate-600 dark:text-slate-300">
-                      +82 10-1234-5678
+                    <div
+                      onClick={() => onClickCopy("+82 10-9533-7164")}
+                      className="text-slate-600 dark:text-slate-300 hover:underline cursor-pointer"
+                    >
+                      +82 10-9533-7164
                     </div>
                   </div>
                 </div>
@@ -78,13 +90,32 @@ const Contact = () => {
             <div>
               <h4 className="font-medium mb-4">소셜 미디어</h4>
               <div className="flex space-x-4">
-                <Button variant="outline" size="icon" className="rounded-full">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="rounded-full"
+                  onClick={() => openNewTab("https://github.com/jinjuseo")}
+                >
                   <Github className="w-5 h-5" />
                 </Button>
-                <Button variant="outline" size="icon" className="rounded-full">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="rounded-full"
+                  onClick={() =>
+                    openNewTab(
+                      "https://www.linkedin.com/in/jinju-seo-0b0bba272/"
+                    )
+                  }
+                >
                   <Linkedin className="w-5 h-5" />
                 </Button>
-                <Button variant="outline" size="icon" className="rounded-full">
+                <Button
+                  onClick={() => openNewTab("mailto:wjbbdq1223@naver.com")}
+                  variant="outline"
+                  size="icon"
+                  className="rounded-full"
+                >
                   <Mail className="w-5 h-5" />
                 </Button>
               </div>
@@ -99,11 +130,12 @@ const Contact = () => {
           >
             <Card>
               <CardHeader>
-                <CardTitle>메시지 보내기</CardTitle>
+                <CardTitle>연락하기 </CardTitle>
                 <CardDescription>
-                  프로젝트에 대해 자세히 알려주세요
+                  궁금하신 점이 있다면 편하게 연락 주세요.
                 </CardDescription>
               </CardHeader>
+
               <CardContent className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
@@ -132,7 +164,7 @@ const Contact = () => {
                   <input
                     type="text"
                     className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800"
-                    placeholder="프로젝트 협업 제안"
+                    placeholder="제목"
                   />
                 </div>
                 <div>
@@ -142,10 +174,14 @@ const Contact = () => {
                   <textarea
                     rows={4}
                     className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800"
-                    placeholder="프로젝트에 대해 자세히 설명해주세요..."
+                    placeholder="메세지를 입력해주세요..."
                   />
                 </div>
-                <Button className="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-violet-500 hover:from-pink-600 hover:via-purple-600 hover:to-violet-600">
+                <Button
+                  type="submit"
+                  onClick={onSubmit}
+                  className="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-violet-500 hover:from-pink-600 hover:via-purple-600 hover:to-violet-600"
+                >
                   메시지 전송
                 </Button>
               </CardContent>

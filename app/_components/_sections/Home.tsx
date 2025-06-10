@@ -43,7 +43,7 @@ const Home = () => {
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8 max-w-3xl mx-auto">
-            창의적이고 사용자 중심의 웹 경험을 만드는 프론트엔드 개발자입니다.
+            몰입을 즐기는 프론트엔드 개발자입니다.
             <br />
             React, Next.js, TypeScript로 혁신적인 솔루션을 구현합니다.
           </p>
@@ -73,14 +73,6 @@ const Home = () => {
           </div>
         </motion.div>
       </div>
-
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <ChevronDown className="w-8 h-8 text-slate-400" />
-      </motion.div>
     </section>
   );
 };

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { BlogPreview } from "@/components/blog-preview";
-
+import { motion } from "framer-motion";
 import NavBar from "./_components/Navbar";
 import Home from "./_components/_sections/Home";
 import About from "./_components/_sections/About";
@@ -11,6 +11,9 @@ import Projects from "./_components/_sections/Projects";
 import Experience from "./_components/_sections/Experience";
 import Contact from "./_components/_sections/Contact";
 import Footer from "./_components/Footer";
+import { ChevronDown } from "lucide-react";
+import { ToastContainer } from "react-toastify";
+import { useTheme } from "next-themes";
 
 const NAV_SECTIONS = [
   "home",
@@ -22,6 +25,7 @@ const NAV_SECTIONS = [
   "contact",
 ];
 export default function Portfolio() {
+  const { theme, setTheme } = useTheme();
   const [activeSection, setActiveSection] = useState("home");
   useEffect(() => {
     const handleScroll = () => {
@@ -45,10 +49,20 @@ export default function Portfolio() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
-      <NavBar sections={NAV_SECTIONS} activeSection={activeSection} />
+      <NavBar
+        sections={NAV_SECTIONS}
+        activeSection={activeSection}
+        scrollToSection={scrollToSection}
+      />
       <Home />
       <About />
       <Skills />
@@ -60,6 +74,34 @@ export default function Portfolio() {
       <Contact />
 
       <Footer />
+      <motion.div
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+        className="fixed bottom-8 left-1/2 transform -translate-x-1/2"
+      >
+        <button
+          className={`bg-transparent p-3 duration-300 ${
+            activeSection === NAV_SECTIONS[NAV_SECTIONS.length - 1] &&
+            "invisible"
+          }`}
+          onClick={() =>
+            setActiveSection((prev) => {
+              {
+                const currIndex = NAV_SECTIONS.indexOf(prev);
+                const nextIndex = Math.min(
+                  currIndex + 1,
+                  NAV_SECTIONS.length - 1
+                );
+                scrollToSection(NAV_SECTIONS[nextIndex]);
+                return NAV_SECTIONS[nextIndex];
+              }
+            })
+          }
+        >
+          <ChevronDown className="w-8 h-8 text-slate-400" />
+        </button>
+      </motion.div>
+      <ToastContainer theme={theme} position="top-right" closeOnClick={false} />
     </div>
   );
 }
