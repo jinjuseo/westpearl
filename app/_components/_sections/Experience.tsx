@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Calendar, MapPin } from "lucide-react";
+import { EXPERIENCE_DATA } from "@/const/experience";
 
 const Experience = () => {
   return (
@@ -28,45 +29,7 @@ const Experience = () => {
           <div className="relative">
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-pink-500 via-purple-500 to-violet-500"></div>
 
-            {[
-              {
-                title: "Senior Frontend Developer",
-                company: "Tech Company A",
-                period: "2022 - Present",
-                location: "서울, 대한민국",
-                description:
-                  "React와 Next.js를 활용한 대규모 웹 애플리케이션 개발 및 팀 리딩",
-                achievements: [
-                  "사용자 경험 개선으로 전환율 25% 향상",
-                  "코드 리뷰 프로세스 도입으로 버그 40% 감소",
-                  "신입 개발자 3명 멘토링",
-                ],
-              },
-              {
-                title: "Frontend Developer",
-                company: "Startup B",
-                period: "2020 - 2022",
-                location: "서울, 대한민국",
-                description: "스타트업 환경에서 빠른 프로토타이핑과 MVP 개발",
-                achievements: [
-                  "0에서 시작하여 월 10만 사용자 달성",
-                  "모바일 퍼스트 반응형 웹 구현",
-                  "A/B 테스트를 통한 UI/UX 최적화",
-                ],
-              },
-              {
-                title: "Junior Frontend Developer",
-                company: "Agency C",
-                period: "2019 - 2020",
-                location: "서울, 대한민국",
-                description: "다양한 클라이언트 프로젝트 참여 및 웹사이트 구축",
-                achievements: [
-                  "20+ 클라이언트 웹사이트 개발",
-                  "크로스 브라우저 호환성 확보",
-                  "성능 최적화로 로딩 속도 50% 개선",
-                ],
-              },
-            ].map((exp, index) => (
+            {EXPERIENCE_DATA.map((exp, index) => (
               <motion.div
                 key={exp.title}
                 initial={{ opacity: 0, x: -30 }}

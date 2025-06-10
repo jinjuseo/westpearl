@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { PROJECTS_DATA } from "@/const/projects";
+import { openNewTab } from "@/utils/common";
 
 const Projects = () => {
   return (
@@ -27,57 +29,7 @@ const Projects = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              title: "E-Commerce Platform",
-              description:
-                "React와 Next.js로 구축한 현대적인 전자상거래 플랫폼",
-              image: "/placeholder.svg?height=200&width=300",
-              tags: ["React", "Next.js", "Stripe", "Tailwind"],
-              github: "#",
-              demo: "#",
-            },
-            {
-              title: "Task Management App",
-              description: "팀 협업을 위한 직관적인 작업 관리 애플리케이션",
-              image: "/placeholder.svg?height=200&width=300",
-              tags: ["React", "TypeScript", "Firebase", "Material-UI"],
-              github: "#",
-              demo: "#",
-            },
-            {
-              title: "Weather Dashboard",
-              description: "실시간 날씨 정보와 예보를 제공하는 대시보드",
-              image: "/placeholder.svg?height=200&width=300",
-              tags: ["Vue.js", "Chart.js", "OpenWeather API"],
-              github: "#",
-              demo: "#",
-            },
-            {
-              title: "Portfolio Website",
-              description: "반응형 디자인의 개인 포트폴리오 웹사이트",
-              image: "/placeholder.svg?height=200&width=300",
-              tags: ["Next.js", "Framer Motion", "Tailwind"],
-              github: "#",
-              demo: "#",
-            },
-            {
-              title: "Social Media App",
-              description: "실시간 채팅과 피드 기능을 가진 소셜 미디어 앱",
-              image: "/placeholder.svg?height=200&width=300",
-              tags: ["React Native", "Socket.io", "Node.js"],
-              github: "#",
-              demo: "#",
-            },
-            {
-              title: "Learning Platform",
-              description: "온라인 강의와 퀴즈 기능을 제공하는 학습 플랫폼",
-              image: "/placeholder.svg?height=200&width=300",
-              tags: ["React", "Redux", "Express", "MongoDB"],
-              github: "#",
-              demo: "#",
-            },
-          ].map((project, index) => (
+          {PROJECTS_DATA.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 30 }}
@@ -94,7 +46,12 @@ const Projects = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
                     <div className="flex space-x-2">
-                      <Button size="sm" variant="secondary">
+                      <Button
+                        size="sm"
+                        variant="secondary"
+                        disabled={project.github === "#"}
+                        onClick={() => openNewTab(project.github)}
+                      >
                         <Github className="w-4 h-4 mr-2" />
                         Code
                       </Button>
@@ -109,7 +66,7 @@ const Projects = () => {
                   <CardTitle className="flex items-center justify-between">
                     {project.title}
                     <div className="flex space-x-1">
-                      {[...Array(5)].map((_, i) => (
+                      {[...Array(project.star_rate)].map((_, i) => (
                         <Star
                           key={i}
                           className="w-4 h-4 fill-yellow-400 text-yellow-400"
