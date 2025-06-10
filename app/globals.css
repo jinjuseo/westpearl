@@ -92,3 +92,94 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Markdown Styling */
+.prose {
+  @apply text-slate-800 dark:text-slate-200;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  @apply font-bold text-slate-900 dark:text-white mt-8 mb-4;
+}
+
+.prose h1 {
+  @apply text-3xl;
+}
+
+.prose h2 {
+  @apply text-2xl border-b border-slate-200 dark:border-slate-700 pb-2;
+}
+
+.prose h3 {
+  @apply text-xl;
+}
+
+.prose p {
+  @apply my-4;
+}
+
+.prose ul,
+.prose ol {
+  @apply my-4 pl-6;
+}
+
+.prose ul {
+  @apply list-disc;
+}
+
+.prose ol {
+  @apply list-decimal;
+}
+
+.prose li {
+  @apply mb-1;
+}
+
+.prose a {
+  @apply text-pink-500 hover:text-pink-600 dark:text-pink-400 dark:hover:text-pink-300 underline;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-slate-300 dark:border-slate-600 pl-4 italic my-4;
+}
+
+.prose pre {
+  @apply bg-slate-100 dark:bg-slate-800 p-4 rounded-md overflow-x-auto my-4;
+}
+
+.prose code {
+  @apply bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded text-sm;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0 text-sm;
+}
+
+.prose img {
+  @apply rounded-md my-4;
+}
+
+.prose hr {
+  @apply my-8 border-slate-200 dark:border-slate-700;
+}
+
+.prose table {
+  @apply w-full my-4 border-collapse;
+}
+
+.prose thead {
+  @apply bg-slate-100 dark:bg-slate-800;
+}
+
+.prose th {
+  @apply border border-slate-300 dark:border-slate-600 px-4 py-2 text-left;
+}
+
+.prose td {
+  @apply border border-slate-300 dark:border-slate-600 px-4 py-2;
+}

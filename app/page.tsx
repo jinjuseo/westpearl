@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
   Github,
   Linkedin,
@@ -16,47 +16,65 @@ import {
   Star,
   Calendar,
   MapPin,
-} from "lucide-react"
+} from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
-import { Progress } from "@/components/ui/progress"
-import { ThemeToggle } from "@/components/theme-toggle"
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { Progress } from "@/components/ui/progress";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { BlogPreview } from "@/components/blog-preview";
+import Link from "next/link";
 
 export default function Portfolio() {
-  const [activeSection, setActiveSection] = useState("home")
-  const { scrollYProgress } = useScroll()
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
+  const [activeSection, setActiveSection] = useState("home");
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "skills", "projects", "experience", "contact"]
-      const scrollPosition = window.scrollY + 100
+      const sections = [
+        "home",
+        "about",
+        "skills",
+        "projects",
+        "experience",
+        "contact",
+      ];
+      const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
-        const element = document.getElementById(section)
+        const element = document.getElementById(section);
         if (element) {
-          const { offsetTop, offsetHeight } = element
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
-            break
+          const { offsetTop, offsetHeight } = element;
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(section);
+            break;
           }
         }
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
@@ -73,7 +91,14 @@ export default function Portfolio() {
             </motion.div>
             <div className="flex items-center space-x-4">
               <div className="hidden md:flex space-x-8">
-                {["home", "about", "skills", "projects", "experience", "contact"].map((section) => (
+                {[
+                  "home",
+                  "about",
+                  "skills",
+                  "projects",
+                  "experience",
+                  "contact",
+                ].map((section) => (
                   <button
                     key={section}
                     onClick={() => scrollToSection(section)}
@@ -86,6 +111,12 @@ export default function Portfolio() {
                     {section}
                   </button>
                 ))}
+                <Link
+                  href="/blog"
+                  className="capitalize transition-colors text-slate-600 dark:text-slate-300 hover:text-pink-500 dark:hover:text-pink-400"
+                >
+                  blog
+                </Link>
               </div>
               <ThemeToggle />
             </div>
@@ -94,14 +125,21 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <section
+        id="home"
+        className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      >
         <motion.div style={{ y }} className="absolute inset-0 z-0">
           <div className="absolute top-20 left-20 w-72 h-72 bg-pink-400/20 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl"></div>
         </motion.div>
 
         <div className="container mx-auto px-4 text-center z-10">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
             <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-violet-500 p-1">
               <div className="w-full h-full rounded-full bg-white dark:bg-slate-900 flex items-center justify-center">
                 <Code className="w-16 h-16 text-pink-500" />
@@ -193,22 +231,26 @@ export default function Portfolio() {
             >
               <h3 className="text-2xl font-bold">안녕하세요! 👋</h3>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                5년 경력의 프론트엔드 개발자로, 사용자 경험을 최우선으로 생각하며 아름답고 기능적인 웹 애플리케이션을
-                만들어왔습니다.
+                5년 경력의 프론트엔드 개발자로, 사용자 경험을 최우선으로
+                생각하며 아름답고 기능적인 웹 애플리케이션을 만들어왔습니다.
               </p>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                React, Next.js, TypeScript를 주력으로 하며, 최신 웹 기술과 디자인 트렌드를 적극적으로 학습하고
-                적용합니다.
+                React, Next.js, TypeScript를 주력으로 하며, 최신 웹 기술과
+                디자인 트렌드를 적극적으로 학습하고 적용합니다.
               </p>
 
               <div className="grid grid-cols-2 gap-4 pt-4">
                 <div className="text-center p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
                   <div className="text-2xl font-bold text-pink-500">50+</div>
-                  <div className="text-sm text-slate-600 dark:text-slate-300">완료 프로젝트</div>
+                  <div className="text-sm text-slate-600 dark:text-slate-300">
+                    완료 프로젝트
+                  </div>
                 </div>
                 <div className="text-center p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
                   <div className="text-2xl font-bold text-purple-600">5년</div>
-                  <div className="text-sm text-slate-600 dark:text-slate-300">개발 경력</div>
+                  <div className="text-sm text-slate-600 dark:text-slate-300">
+                    개발 경력
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -254,8 +296,12 @@ export default function Portfolio() {
                   ].map((skill) => (
                     <div key={skill.name}>
                       <div className="flex justify-between mb-2">
-                        <span className="text-sm font-medium">{skill.name}</span>
-                        <span className="text-sm text-slate-500">{skill.level}%</span>
+                        <span className="text-sm font-medium">
+                          {skill.name}
+                        </span>
+                        <span className="text-sm text-slate-500">
+                          {skill.level}%
+                        </span>
                       </div>
                       <Progress value={skill.level} className="h-2" />
                     </div>
@@ -287,8 +333,12 @@ export default function Portfolio() {
                   ].map((skill) => (
                     <div key={skill.name}>
                       <div className="flex justify-between mb-2">
-                        <span className="text-sm font-medium">{skill.name}</span>
-                        <span className="text-sm text-slate-500">{skill.level}%</span>
+                        <span className="text-sm font-medium">
+                          {skill.name}
+                        </span>
+                        <span className="text-sm text-slate-500">
+                          {skill.level}%
+                        </span>
                       </div>
                       <Progress value={skill.level} className="h-2" />
                     </div>
@@ -320,8 +370,12 @@ export default function Portfolio() {
                   ].map((skill) => (
                     <div key={skill.name}>
                       <div className="flex justify-between mb-2">
-                        <span className="text-sm font-medium">{skill.name}</span>
-                        <span className="text-sm text-slate-500">{skill.level}%</span>
+                        <span className="text-sm font-medium">
+                          {skill.name}
+                        </span>
+                        <span className="text-sm text-slate-500">
+                          {skill.level}%
+                        </span>
                       </div>
                       <Progress value={skill.level} className="h-2" />
                     </div>
@@ -351,7 +405,8 @@ export default function Portfolio() {
             {[
               {
                 title: "E-Commerce Platform",
-                description: "React와 Next.js로 구축한 현대적인 전자상거래 플랫폼",
+                description:
+                  "React와 Next.js로 구축한 현대적인 전자상거래 플랫폼",
                 image: "/placeholder.svg?height=200&width=300",
                 tags: ["React", "Next.js", "Stripe", "Tailwind"],
                 github: "#",
@@ -430,7 +485,10 @@ export default function Portfolio() {
                       {project.title}
                       <div className="flex space-x-1">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                          <Star
+                            key={i}
+                            className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                          />
                         ))}
                       </div>
                     </CardTitle>
@@ -476,7 +534,8 @@ export default function Portfolio() {
                   company: "Tech Company A",
                   period: "2022 - Present",
                   location: "서울, 대한민국",
-                  description: "React와 Next.js를 활용한 대규모 웹 애플리케이션 개발 및 팀 리딩",
+                  description:
+                    "React와 Next.js를 활용한 대규모 웹 애플리케이션 개발 및 팀 리딩",
                   achievements: [
                     "사용자 경험 개선으로 전환율 25% 향상",
                     "코드 리뷰 프로세스 도입으로 버그 40% 감소",
@@ -500,7 +559,8 @@ export default function Portfolio() {
                   company: "Agency C",
                   period: "2019 - 2020",
                   location: "서울, 대한민국",
-                  description: "다양한 클라이언트 프로젝트 참여 및 웹사이트 구축",
+                  description:
+                    "다양한 클라이언트 프로젝트 참여 및 웹사이트 구축",
                   achievements: [
                     "20+ 클라이언트 웹사이트 개발",
                     "크로스 브라우저 호환성 확보",
@@ -539,12 +599,17 @@ export default function Portfolio() {
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-slate-600 dark:text-slate-300 mb-4">{exp.description}</p>
+                      <p className="text-slate-600 dark:text-slate-300 mb-4">
+                        {exp.description}
+                      </p>
                       <div className="space-y-2">
                         <h4 className="font-medium text-sm">주요 성과:</h4>
                         <ul className="space-y-1">
                           {exp.achievements.map((achievement, i) => (
-                            <li key={i} className="text-sm text-slate-600 dark:text-slate-300 flex items-start">
+                            <li
+                              key={i}
+                              className="text-sm text-slate-600 dark:text-slate-300 flex items-start"
+                            >
                               <span className="w-1.5 h-1.5 bg-pink-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
                               {achievement}
                             </li>
@@ -560,8 +625,13 @@ export default function Portfolio() {
         </div>
       </section>
 
+      {/* Blog Preview Section */}
+      <section id="blog" className="py-20 bg-white dark:bg-slate-900">
+        <BlogPreview />
+      </section>
+
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white dark:bg-slate-900">
+      <section id="contact" className="py-20 bg-slate-50 dark:bg-slate-800">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -573,7 +643,8 @@ export default function Portfolio() {
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Contact</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-violet-500 mx-auto mb-8"></div>
             <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-              새로운 프로젝트나 협업 기회에 대해 이야기하고 싶으시다면 언제든 연락주세요!
+              새로운 프로젝트나 협업 기회에 대해 이야기하고 싶으시다면 언제든
+              연락주세요!
             </p>
           </motion.div>
 
@@ -594,7 +665,9 @@ export default function Portfolio() {
                     </div>
                     <div>
                       <div className="font-medium">이메일</div>
-                      <div className="text-slate-600 dark:text-slate-300">contact@example.com</div>
+                      <div className="text-slate-600 dark:text-slate-300">
+                        contact@example.com
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4">
@@ -603,7 +676,9 @@ export default function Portfolio() {
                     </div>
                     <div>
                       <div className="font-medium">전화번호</div>
-                      <div className="text-slate-600 dark:text-slate-300">+82 10-1234-5678</div>
+                      <div className="text-slate-600 dark:text-slate-300">
+                        +82 10-1234-5678
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4">
@@ -612,7 +687,9 @@ export default function Portfolio() {
                     </div>
                     <div>
                       <div className="font-medium">위치</div>
-                      <div className="text-slate-600 dark:text-slate-300">서울, 대한민국</div>
+                      <div className="text-slate-600 dark:text-slate-300">
+                        서울, 대한민국
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -621,13 +698,25 @@ export default function Portfolio() {
               <div>
                 <h4 className="font-medium mb-4">소셜 미디어</h4>
                 <div className="flex space-x-4">
-                  <Button variant="outline" size="icon" className="rounded-full">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="rounded-full"
+                  >
                     <Github className="w-5 h-5" />
                   </Button>
-                  <Button variant="outline" size="icon" className="rounded-full">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="rounded-full"
+                  >
                     <Linkedin className="w-5 h-5" />
                   </Button>
-                  <Button variant="outline" size="icon" className="rounded-full">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="rounded-full"
+                  >
                     <Mail className="w-5 h-5" />
                   </Button>
                 </div>
@@ -643,12 +732,16 @@ export default function Portfolio() {
               <Card>
                 <CardHeader>
                   <CardTitle>메시지 보내기</CardTitle>
-                  <CardDescription>프로젝트에 대해 자세히 알려주세요</CardDescription>
+                  <CardDescription>
+                    프로젝트에 대해 자세히 알려주세요
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="text-sm font-medium mb-2 block">이름</label>
+                      <label className="text-sm font-medium mb-2 block">
+                        이름
+                      </label>
                       <input
                         type="text"
                         className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800"
@@ -656,7 +749,9 @@ export default function Portfolio() {
                       />
                     </div>
                     <div>
-                      <label className="text-sm font-medium mb-2 block">이메일</label>
+                      <label className="text-sm font-medium mb-2 block">
+                        이메일
+                      </label>
                       <input
                         type="email"
                         className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800"
@@ -665,7 +760,9 @@ export default function Portfolio() {
                     </div>
                   </div>
                   <div>
-                    <label className="text-sm font-medium mb-2 block">제목</label>
+                    <label className="text-sm font-medium mb-2 block">
+                      제목
+                    </label>
                     <input
                       type="text"
                       className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800"
@@ -673,7 +770,9 @@ export default function Portfolio() {
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-medium mb-2 block">메시지</label>
+                    <label className="text-sm font-medium mb-2 block">
+                      메시지
+                    </label>
                     <textarea
                       rows={4}
                       className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800"
@@ -697,23 +796,39 @@ export default function Portfolio() {
             <div className="text-2xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent mb-4">
               Portfolio
             </div>
-            <p className="text-slate-400 mb-6">창의적이고 혁신적인 웹 솔루션을 만들어갑니다.</p>
+            <p className="text-slate-400 mb-6">
+              창의적이고 혁신적인 웹 솔루션을 만들어갑니다.
+            </p>
             <Separator className="my-6" />
             <div className="flex justify-center space-x-6 mb-6">
-              <Button variant="ghost" size="icon" className="text-slate-400 hover:text-white">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-slate-400 hover:text-white"
+              >
                 <Github className="w-5 h-5" />
               </Button>
-              <Button variant="ghost" size="icon" className="text-slate-400 hover:text-white">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-slate-400 hover:text-white"
+              >
                 <Linkedin className="w-5 h-5" />
               </Button>
-              <Button variant="ghost" size="icon" className="text-slate-400 hover:text-white">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-slate-400 hover:text-white"
+              >
                 <Mail className="w-5 h-5" />
               </Button>
             </div>
-            <p className="text-slate-500 text-sm">© 2024 Portfolio. All rights reserved.</p>
+            <p className="text-slate-500 text-sm\">
+              © 2024 Portfolio. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }
