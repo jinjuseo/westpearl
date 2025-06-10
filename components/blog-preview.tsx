@@ -1,19 +1,27 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { ArrowRight, Calendar, Clock } from "lucide-react"
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowRight, Calendar, Clock } from "lucide-react";
 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 // 직접 데이터를 정의해서 import 문제를 피합니다
 const samplePosts = [
   {
     id: "1",
     title: "Next.js 서버 컴포넌트에서 겪은 트러블슈팅",
-    excerpt: "Next.js 13의 서버 컴포넌트를 사용하면서 겪었던 문제와 해결 방법에 대한 기록입니다.",
+    excerpt:
+      "Next.js 13의 서버 컴포넌트를 사용하면서 겪었던 문제와 해결 방법에 대한 기록입니다.",
     coverImage: "/placeholder.svg?height=400&width=600",
     date: "2023-12-15",
     category: "troubleshooting",
@@ -33,20 +41,21 @@ const samplePosts = [
   {
     id: "3",
     title: "React Query로 상태 관리 최적화하기",
-    excerpt: "React Query를 활용하여 API 통신과 상태 관리를 효율적으로 처리하는 방법을 소개합니다.",
+    excerpt:
+      "React Query를 활용하여 API 통신과 상태 관리를 효율적으로 처리하는 방법을 소개합니다.",
     coverImage: "/placeholder.svg?height=400&width=600",
     date: "2024-02-05",
     category: "development",
     readingTime: "7 min read",
     slug: "react-query-state-management",
   },
-]
+];
 
 export function BlogPreview() {
-  const recentPosts = samplePosts.slice(0, 3)
+  const recentPosts = samplePosts.slice(0, 3);
 
   return (
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto px-4 ">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -93,7 +102,9 @@ export function BlogPreview() {
                 </div>
                 <CardHeader>
                   <CardTitle className="line-clamp-2">{post.title}</CardTitle>
-                  <CardDescription className="line-clamp-2">{post.excerpt}</CardDescription>
+                  <CardDescription className="line-clamp-2">
+                    {post.excerpt}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center text-sm text-slate-500 space-x-4">
@@ -127,5 +138,5 @@ export function BlogPreview() {
         </Link>
       </div>
     </div>
-  )
+  );
 }
