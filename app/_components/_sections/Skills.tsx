@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { frontend, tools, collab } from "@/const/skills";
 const Skills = () => {
   return (
     <section
@@ -40,15 +41,12 @@ const Skills = () => {
                   <Code className="w-8 h-8 text-white" />
                 </div>
                 <CardTitle>Frontend</CardTitle>
-                <CardDescription>사용자 인터페이스 개발</CardDescription>
+                <CardDescription>
+                  사용자 UI 구현을 위한 핵심 기술 스택
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                {[
-                  { name: "React", level: 95 },
-                  { name: "Next.js", level: 90 },
-                  { name: "TypeScript", level: 88 },
-                  { name: "Tailwind CSS", level: 92 },
-                ].map((skill) => (
+                {frontend.map((skill) => (
                   <div key={skill.name}>
                     <div className="flex justify-between mb-2">
                       <span className="text-sm font-medium">{skill.name}</span>
@@ -74,16 +72,13 @@ const Skills = () => {
                 <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-purple-500 to-violet-600 rounded-full flex items-center justify-center">
                   <Palette className="w-8 h-8 text-white" />
                 </div>
-                <CardTitle>Design</CardTitle>
-                <CardDescription>UI/UX 디자인 및 도구</CardDescription>
+                <CardTitle>Tools </CardTitle>
+                <CardDescription>
+                  개발과 배포에 활용한 도구 및 인프라
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                {[
-                  { name: "Figma", level: 85 },
-                  { name: "Adobe XD", level: 80 },
-                  { name: "Photoshop", level: 75 },
-                  { name: "Illustrator", level: 70 },
-                ].map((skill) => (
+                {tools.map((skill) => (
                   <div key={skill.name}>
                     <div className="flex justify-between mb-2">
                       <span className="text-sm font-medium">{skill.name}</span>
@@ -109,16 +104,13 @@ const Skills = () => {
                 <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full flex items-center justify-center">
                   <Globe className="w-8 h-8 text-white" />
                 </div>
-                <CardTitle>Tools</CardTitle>
-                <CardDescription>개발 도구 및 플랫폼</CardDescription>
+                <CardTitle>Collaboration</CardTitle>
+                <CardDescription>
+                  실무 협업에 사용한 커뮤니케이션 도구
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                {[
-                  { name: "Git", level: 90 },
-                  { name: "Webpack", level: 82 },
-                  { name: "Docker", level: 75 },
-                  { name: "AWS", level: 70 },
-                ].map((skill) => (
+                {collab.map((skill) => (
                   <div key={skill.name}>
                     <div className="flex justify-between mb-2">
                       <span className="text-sm font-medium">{skill.name}</span>

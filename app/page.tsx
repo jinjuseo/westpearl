@@ -77,7 +77,7 @@ export default function Portfolio() {
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-        className="fixed bottom-8 left-1/2 transform -translate-x-1/2"
+        className="fixed bottom-8 inset-x-0 mx-auto w-fit"
       >
         <button
           className={`bg-transparent p-3 duration-300 ${

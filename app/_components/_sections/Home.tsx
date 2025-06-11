@@ -32,9 +32,14 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-violet-500 p-1">
+          <div className="w-40 h-40 mx-auto mb-8 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-violet-500 p-1">
             <div className="w-full h-full rounded-full bg-white dark:bg-slate-900 flex items-center justify-center">
-              <Code className="w-16 h-16 text-pink-500" />
+              {/* <Code className="w-16 h-16 text-pink-500" /> */}
+              <img
+                className="size-full rounded-full"
+                src={"/images/westpearl_3d.gif"}
+                alt={"westpearl"}
+              />
             </div>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
@@ -43,9 +48,11 @@ const Home = () => {
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8 max-w-3xl mx-auto">
-            몰입을 즐기는 프론트엔드 개발자입니다.
+            도전 속에서 재미를 찾고, 그 재미를 동력 삼아 몰입하는 프론트엔드
+            개발자입니다
             <br />
-            React, Next.js, TypeScript로 혁신적인 솔루션을 구현합니다.
+            새로운 기술이나 처음 접하는 문제를 마주할 때 가장 열정적으로 일할 수
+            있다고 믿습니다.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button
