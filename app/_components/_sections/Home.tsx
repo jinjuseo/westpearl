@@ -10,9 +10,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-interface Props {
-  y: MotionValue<string>;
-}
+
 const Home = () => {
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
