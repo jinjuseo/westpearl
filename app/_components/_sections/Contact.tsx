@@ -17,7 +17,10 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-slate-50 dark:bg-slate-900">
+    <section
+      id="contact"
+      className="py-24 bg-slate-50 dark:bg-slate-900 min-h-screen"
+    >
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

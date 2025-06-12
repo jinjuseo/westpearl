@@ -16,7 +16,10 @@ import AutoCarousel from "@/components/ui/auto-carousel";
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-24 bg-white dark:bg-slate-900">
+    <section
+      id="projects"
+      className="py-24 bg-white dark:bg-slate-900 min-h-screen"
+    >
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -51,11 +54,13 @@ const Projects = () => {
                       <Button
                         size="sm"
                         variant="secondary"
-                        disabled={project.github === "#"}
+                        disabled={
+                          project.github === "private" || project.github === "#"
+                        }
                         onClick={() => openNewTab(project.github)}
                       >
                         <Github className="w-4 h-4 mr-2" />
-                        Code
+                        {project.github === "private" ? "Private" : "Code"}
                       </Button>
                       {/* <Button size="sm" variant="secondary">
                         <ExternalLink className="w-4 h-4 mr-2" />

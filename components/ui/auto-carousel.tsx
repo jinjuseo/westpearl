@@ -22,7 +22,7 @@ const AutoCarousel = ({
     <img
       src={images[currentIndex] || "/placeholder.svg"}
       alt={title}
-      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 rounded-t-lg"
     />
   );
 };

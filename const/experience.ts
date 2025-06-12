@@ -38,4 +38,17 @@ export const EXPERIENCE_DATA = [
       "AWS 배포 및 웹 성능 최적화 기본 원리 이해",
     ],
   },
+  {
+    title: "아일랜드 Tu Dublin 공과대학 교환학생",
+    company: "Tu Dublin",
+    period: "2021.03 - 2022.01",
+    location: "원격/아일랜드 더블린",
+    description:
+      "HTML, CSS, JavaScript 기본기부터 React, Tailwind CSS, Recoil 등의 최신 프론트엔드 기술을 학습했습니다. 또한, 팀 프로젝트를 통해 UI/UX 설계와 개발, 그리고 AWS를 활용한 배포 경험을 쌓았습니다.",
+    achievements: [
+      "HTML, CSS, JavaScript 및 React 기본기 탄탄히 습득",
+      "Tailwind CSS와 Recoil 상태 관리 라이브러리 학습",
+      "AWS 배포 및 웹 성능 최적화 기본 원리 이해",
+    ],
+  },
 ];

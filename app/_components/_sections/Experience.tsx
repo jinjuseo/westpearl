@@ -12,7 +12,10 @@ import { EXPERIENCE_DATA } from "@/const/experience";
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-24 bg-slate-50 dark:bg-slate-800">
+    <section
+      id="experience"
+      className="py-24 bg-slate-50 dark:bg-slate-800 min-h-screen"
+    >
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

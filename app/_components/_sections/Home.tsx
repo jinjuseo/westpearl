@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { openNewTab } from "@/utils/common";
 
 const Home = () => {
   const { scrollYProgress } = useScroll();
@@ -45,7 +46,7 @@ const Home = () => {
               Frontend Developer
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8 max-w-4xl mx-auto">
             도전 속에서 재미를 찾고, 그 재미를 동력 삼아 몰입하는 프론트엔드
             개발자입니다
             <br />
@@ -54,25 +55,43 @@ const Home = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button
+              onClick={() => openNewTab("mailto:wjbbdq1223@naver.com")}
               size="lg"
               className="bg-gradient-to-r from-pink-500 via-purple-500 to-violet-500 hover:from-pink-600 hover:via-purple-600 hover:to-violet-600"
             >
               <Mail className="w-5 h-5 mr-2" />
               연락하기
             </Button>
-            <Button size="lg" variant="outline">
+            <Button size="lg" variant="outline" disabled={true}>
               <Download className="w-5 h-5 mr-2" />
               이력서 다운로드
             </Button>
           </div>
           <div className="flex justify-center space-x-6">
-            <Button variant="ghost" size="icon" className="rounded-full">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="rounded-full"
+              onClick={() => openNewTab("https://github.com/jinjuseo")}
+            >
               <Github className="w-6 h-6" />
             </Button>
-            <Button variant="ghost" size="icon" className="rounded-full">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="rounded-full"
+              onClick={() =>
+                openNewTab("https://www.linkedin.com/in/jinju-seo-0b0bba272/")
+              }
+            >
               <Linkedin className="w-6 h-6" />
             </Button>
-            <Button variant="ghost" size="icon" className="rounded-full">
+            <Button
+              onClick={() => openNewTab("mailto:wjbbdq1223@naver.com")}
+              variant="ghost"
+              size="icon"
+              className="rounded-full"
+            >
               <Mail className="w-6 h-6" />
             </Button>
           </div>

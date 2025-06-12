@@ -1,9 +1,18 @@
 export const PROJECTS_DATA = [
   {
+    title: "westpearl.dev ",
+    description: "[portfolio] 포트폴리오 및 개인 블로그 개발 (현재진행형)",
+    images: ["/images/projects/westpearl_dev/westpearl_dev.gif"],
+    tags: ["Next.js", "Typescript", "Tailwind", "rodin", "vercel"],
+    github: "https://github.com/jinjuseo/westpearl",
+    demo: "#",
+    star_rate: 3,
+  },
+  {
     title: "K-SOX AI",
     description: `[삼일피더블유씨엑셀러레이션센터] 
       React와 Next.js로 구축한 K-SOX AI 웹 앱`,
-    images: ["/placeholder.svg?height=200&width=300"],
+    images: ["/images/projects/k-sox/k-sox.png"],
     tags: [
       "Next.js",
       "Typescript",
@@ -12,7 +21,7 @@ export const PROJECTS_DATA = [
       "Zustand",
       "MSW",
     ],
-    github: "#",
+    github: "private",
     demo: "#",
     star_rate: 5,
   },
@@ -20,7 +29,7 @@ export const PROJECTS_DATA = [
     title: "Devkit",
     description: `[삼일피더블유씨엑셀러레이션센터]
        사내 웹 서비스의 디자인 통일성 및 프론트엔드 개발 생산성 증가를 위해 구축한 사내 디자인 시스템 `,
-    images: ["/placeholder.svg?height=200&width=300"],
+    images: ["/images/projects/devkit/devkit.png"],
     tags: [
       "Next.js",
       "TypeScript",
@@ -30,7 +39,7 @@ export const PROJECTS_DATA = [
       "Rollup",
       "Figma",
     ],
-    github: "#",
+    github: "private",
     demo: "#",
     star_rate: 5,
   },
@@ -94,13 +103,13 @@ export const PROJECTS_DATA = [
     demo: "#",
     star_rate: 3,
   },
-  {
-    title: "milymood",
-    description: "[milymood] 주문 제작 커튼 주문 관리 및 발주 자동화 플랫폼",
-    images: ["/placeholder.svg?height=200&width=300"],
-    tags: ["JSP", "tomcat", "Javascript", "Mysql"],
-    github: "#",
-    demo: "#",
-    star_rate: 3,
-  },
+  // {
+  //   title: "milymood",
+  //   description: "[milymood] 주문 제작 커튼 주문 관리 및 발주 자동화 플랫폼",
+  //   images: ["/placeholder.svg?height=200&width=300"],
+  //   tags: ["JSP", "tomcat", "Javascript", "Mysql"],
+  //   github: "#",
+  //   demo: "#",
+  //   star_rate: 3,
+  // },
 ];
