@@ -31,7 +31,9 @@ const About = () => {
               <div className="w-full h-96 bg-transparent rounded-2xl flex items-center justify-center">
                 {/* <Palette className="w-32 h-32 text-blue-600/50" /> */}
                 <img
-                  src={"/images/sjj.jpg"}
+                  src={
+                    "https://lh3.googleusercontent.com/d/1l5G1ZgZdf9P_l_tizjkDnP7IFO65LYJ-"
+                  }
                   alt="jinjuseo"
                   className="rounded-md size-full object-cover "
                 />

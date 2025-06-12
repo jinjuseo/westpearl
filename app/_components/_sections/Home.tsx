@@ -36,7 +36,9 @@ const Home = () => {
               {/* <Code className="w-16 h-16 text-pink-500" /> */}
               <img
                 className="size-full rounded-full"
-                src={"/images/westpearl_3d.gif"}
+                src={
+                  "https://lh3.googleusercontent.com/d/1SoL2XfDaMptG0tQhGbPMewS7px6dN-EP"
+                }
                 alt={"westpearl"}
               />
             </div>
