@@ -25,7 +25,7 @@ const m_archive: string[] = [
 export const PROJECTS_DATA = [
   {
     title: "westpearl.dev ",
-    description: "[portfolio] 포트폴리오 및 개인 블로그 개발 (현재진행형)",
+    description: "[portfolio] 포트폴리오 및 개인 블로그 개발 (진행중)",
     images: [
       "https://lh3.googleusercontent.com/d/16lpPxi5sH_FtyTneWcUjH9lpQHfQq7Ic",
     ],

@@ -44,11 +44,11 @@ export const EXPERIENCE_DATA = [
     period: "2021.03 - 2022.01",
     location: "원격/아일랜드 더블린",
     description:
-      "HTML, CSS, JavaScript 기본기부터 React, Tailwind CSS, Recoil 등의 최신 프론트엔드 기술을 학습했습니다. 또한, 팀 프로젝트를 통해 UI/UX 설계와 개발, 그리고 AWS를 활용한 배포 경험을 쌓았습니다.",
+      "코로나 상황으로 한 학기는 원격, 한 학기는 아일랜드 더블린 현지 캠퍼스에서 수업을 들으며 다양한 개발 경험과 글로벌 협업 능력을 쌓았습니다. 현지 수업에서는 프론트엔드, IoT, 모바일 개발 중심의 실습 과목을 수강하며, 다국적 팀 프로젝트에도 직접 참여했습니다",
     achievements: [
-      "HTML, CSS, JavaScript 및 React 기본기 탄탄히 습득",
-      "Tailwind CSS와 Recoil 상태 관리 라이브러리 학습",
-      "AWS 배포 및 웹 성능 최적화 기본 원리 이해",
+      "프론트엔드 기술 (HTML, CSS, JS) 기초부터 React까지 실습 중심 학습",
+      "Raspberry Pi를 활용한 IoT 실습 및 안드로이드 앱 개발",
+      "다국적 팀과 영어로 협업하며 Global Classroom 프로젝트 수행",
     ],
   },
 ];
