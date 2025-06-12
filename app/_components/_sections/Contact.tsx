@@ -182,7 +182,7 @@ const Contact = () => {
                 </div>
                 <Button
                   type="submit"
-                  onClick={onSubmit}
+                  onClick={() => toastify("준비중입니다...")}
                   className="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-violet-500 hover:from-pink-600 hover:via-purple-600 hover:to-violet-600"
                 >
                   메시지 전송

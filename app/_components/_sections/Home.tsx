@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { openNewTab } from "@/utils/common";
+import { openNewTab, toastify } from "@/utils/common";
 
 const Home = () => {
   const { scrollYProgress } = useScroll();
@@ -64,7 +64,11 @@ const Home = () => {
               <Mail className="w-5 h-5 mr-2" />
               연락하기
             </Button>
-            <Button size="lg" variant="outline" disabled={true}>
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() => toastify("준비중입니다...")}
+            >
               <Download className="w-5 h-5 mr-2" />
               이력서 다운로드
             </Button>
