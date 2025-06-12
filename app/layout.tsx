@@ -6,7 +6,11 @@ import { ThemeProvider } from "@/components/theme-provider";
 export const metadata: Metadata = {
   title: "westpearl.dev",
   description: "Created by jinjuseo",
-  generator: "westpearl.dev",
+  authors: [{ name: "jinjuseo" }],
+  keywords: ["portfolio", "blog", "jinjuseo", "westpearl.dev"],
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
