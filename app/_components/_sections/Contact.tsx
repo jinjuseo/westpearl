@@ -1,6 +1,6 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Github, Linkedin, Mail, Smartphone, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
+import { Mail, Smartphone, MapPin } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -9,13 +9,13 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { toast } from "react-toastify";
 import { onClickCopy, openNewTab, toastify } from "@/utils/common";
-const Contact = () => {
-  const onSubmit = () => {
-    toastify("메세지가 전송되었습니다.");
-  };
+import { useForm, ValidationError } from "@formspree/react";
+import { useEffect, useState } from "react";
+import { profile } from "@/const/profile";
+import ContactButtons from "@/components/contact-buttons";
 
+const Contact = () => {
   return (
     <section
       id="contact"
@@ -58,7 +58,7 @@ const Contact = () => {
                       onClick={() => onClickCopy("wjbbdq1223@naver.com")}
                       className="text-slate-600 dark:text-slate-300 hover:underline cursor-pointer"
                     >
-                      wjbbdq1223@naver.com
+                      {profile.email}
                     </div>
                   </div>
                 </div>
@@ -72,7 +72,7 @@ const Contact = () => {
                       onClick={() => onClickCopy("+82 10-9533-7164")}
                       className="text-slate-600 dark:text-slate-300 hover:underline cursor-pointer"
                     >
-                      +82 10-9533-7164
+                      {profile.phone}
                     </div>
                   </div>
                 </div>
@@ -83,7 +83,7 @@ const Contact = () => {
                   <div>
                     <div className="font-medium">위치</div>
                     <div className="text-slate-600 dark:text-slate-300">
-                      서울, 대한민국
+                      {profile.location}
                     </div>
                   </div>
                 </div>
@@ -93,34 +93,7 @@ const Contact = () => {
             <div>
               <h4 className="font-medium mb-4">소셜 미디어</h4>
               <div className="flex space-x-4">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="rounded-full"
-                  onClick={() => openNewTab("https://github.com/jinjuseo")}
-                >
-                  <Github className="w-5 h-5" />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="rounded-full"
-                  onClick={() =>
-                    openNewTab(
-                      "https://www.linkedin.com/in/jinju-seo-0b0bba272/"
-                    )
-                  }
-                >
-                  <Linkedin className="w-5 h-5" />
-                </Button>
-                <Button
-                  onClick={() => openNewTab("mailto:wjbbdq1223@naver.com")}
-                  variant="outline"
-                  size="icon"
-                  className="rounded-full"
-                >
-                  <Mail className="w-5 h-5" />
-                </Button>
+                <ContactButtons variant="outline" clasesName="rounded-full" />
               </div>
             </div>
           </motion.div>
@@ -139,54 +112,8 @@ const Contact = () => {
                 </CardDescription>
               </CardHeader>
 
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-sm font-medium mb-2 block">
-                      이름
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800"
-                      placeholder="홍길동"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium mb-2 block">
-                      이메일
-                    </label>
-                    <input
-                      type="email"
-                      className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800"
-                      placeholder="hong@example.com"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-2 block">제목</label>
-                  <input
-                    type="text"
-                    className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800"
-                    placeholder="제목"
-                  />
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-2 block">
-                    메시지
-                  </label>
-                  <textarea
-                    rows={4}
-                    className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800"
-                    placeholder="메세지를 입력해주세요..."
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  onClick={() => toastify("준비중입니다...")}
-                  className="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-violet-500 hover:from-pink-600 hover:via-purple-600 hover:to-violet-600"
-                >
-                  메시지 전송
-                </Button>
+              <CardContent>
+                <ContactForm />
               </CardContent>
             </Card>
           </motion.div>
@@ -197,3 +124,103 @@ const Contact = () => {
 };
 
 export default Contact;
+
+const ContactForm = () => {
+  const [state, handleSubmit] = useForm("mpwrdkjb");
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    title: "",
+    message: "",
+  });
+  useEffect(() => {
+    onSubmit();
+  }, [state.succeeded, state.errors]);
+  const onSubmit = () => {
+    if (state.succeeded) {
+      toastify("메세지가 전송되었습니다.");
+      setForm({
+        name: "",
+        email: "",
+        title: "",
+        message: "",
+      });
+    } else if (state.errors) {
+      toastify("메세지 전송에 실패했습니다. 다시 시도해주세요.");
+    }
+  };
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label className="text-sm font-medium mb-2 block">이름</label>
+          <input
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
+            value={form.name}
+            required
+            type="text"
+            id="name"
+            name="name"
+            className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800"
+            placeholder="홍길동"
+          />
+          <ValidationError prefix="Name" field="name" errors={state.errors} />
+        </div>
+        <div>
+          <label className="text-sm font-medium mb-2 block">이메일</label>
+          <input
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
+            value={form.email}
+            required
+            id="email"
+            name="email"
+            type="email"
+            className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800"
+            placeholder="hong@example.com"
+          />
+          <ValidationError prefix="Email" field="email" errors={state.errors} />
+        </div>
+      </div>
+      <div>
+        <label className="text-sm font-medium mb-2 block">제목</label>
+        <input
+          onChange={(e) => setForm({ ...form, title: e.target.value })}
+          value={form.title}
+          required
+          id="title"
+          name="title"
+          type="text"
+          className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800"
+          placeholder="제목"
+        />
+        <ValidationError prefix="Title" field="title" errors={state.errors} />
+      </div>
+      <div>
+        <label className="text-sm font-medium mb-2 block">메시지</label>
+        <textarea
+          value={form.message}
+          onChange={(e) => setForm({ ...form, message: e.target.value })}
+          required
+          id="message"
+          name="message"
+          rows={4}
+          className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800"
+          placeholder="메세지를 입력해주세요..."
+        />
+        <ValidationError
+          prefix="Message"
+          field="message"
+          errors={state.errors}
+        />
+      </div>
+      <Button
+        type="submit"
+        disabled={state.submitting}
+        onClick={onSubmit}
+        className="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-violet-500 hover:from-pink-600 hover:via-purple-600 hover:to-violet-600"
+      >
+        메시지 전송
+      </Button>
+    </form>
+  );
+};

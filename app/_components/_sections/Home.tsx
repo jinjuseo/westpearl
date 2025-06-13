@@ -1,16 +1,10 @@
 "use client";
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
-import {
-  Github,
-  Linkedin,
-  Mail,
-  Code,
-  Download,
-  ChevronDown,
-} from "lucide-react";
+import { Mail, Download } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { openNewTab, toastify } from "@/utils/common";
+import ContactButtons from "@/components/contact-buttons";
 
 const Home = () => {
   const { scrollYProgress } = useScroll();
@@ -74,32 +68,7 @@ const Home = () => {
             </Button>
           </div>
           <div className="flex justify-center space-x-6">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="rounded-full"
-              onClick={() => openNewTab("https://github.com/jinjuseo")}
-            >
-              <Github className="w-6 h-6" />
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="rounded-full"
-              onClick={() =>
-                openNewTab("https://www.linkedin.com/in/jinju-seo-0b0bba272/")
-              }
-            >
-              <Linkedin className="w-6 h-6" />
-            </Button>
-            <Button
-              onClick={() => openNewTab("mailto:wjbbdq1223@naver.com")}
-              variant="ghost"
-              size="icon"
-              className="rounded-full"
-            >
-              <Mail className="w-6 h-6" />
-            </Button>
+            <ContactButtons variant="ghost" clasesName="rounded-full" />
           </div>
         </motion.div>
       </div>

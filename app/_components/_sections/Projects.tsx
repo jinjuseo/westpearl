@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PROJECTS_DATA } from "@/const/projects";
 import { openNewTab } from "@/utils/common";
-import AutoCarousel from "@/components/ui/auto-carousel";
+import AutoCarousel from "@/components/auto-carousel";
 
 const Projects = () => {
   return (
@@ -43,11 +43,6 @@ const Projects = () => {
             >
               <Card className="h-full group hover:shadow-xl transition-all duration-300">
                 <div className="relative overflow-hidden">
-                  {/* <img
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  /> */}
                   <AutoCarousel images={project.images} title={project.title} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
                     <div className="flex space-x-2">
