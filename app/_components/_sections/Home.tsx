@@ -5,6 +5,7 @@ import { Mail, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { openNewTab, toastify } from "@/utils/common";
 import ContactButtons from "@/components/contact-buttons";
+import { profile } from "@/const/profile";
 
 const Home = () => {
   const { scrollYProgress } = useScroll();
@@ -51,7 +52,7 @@ const Home = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button
-              onClick={() => openNewTab("mailto:wjbbdq1223@naver.com")}
+              onClick={() => openNewTab(`mailto:${profile.email}`)}
               size="lg"
               className="bg-gradient-to-r from-pink-500 via-purple-500 to-violet-500 hover:from-pink-600 hover:via-purple-600 hover:to-violet-600"
             >

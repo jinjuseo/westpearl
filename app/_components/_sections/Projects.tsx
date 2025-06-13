@@ -1,6 +1,6 @@
 "use client";
-import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
-import { ExternalLink, Github, Star } from "lucide-react";
+import { motion } from "framer-motion";
+import { Github, Star } from "lucide-react";
 import {
   Card,
   CardContent,

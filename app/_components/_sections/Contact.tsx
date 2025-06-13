@@ -48,45 +48,7 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-bold mb-6">연락처 정보</h3>
               <div className="space-y-4">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-medium">이메일</div>
-                    <div
-                      onClick={() => onClickCopy("wjbbdq1223@naver.com")}
-                      className="text-slate-600 dark:text-slate-300 hover:underline cursor-pointer"
-                    >
-                      {profile.email}
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
-                    <Smartphone className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-medium">전화번호</div>
-                    <div
-                      onClick={() => onClickCopy("+82 10-9533-7164")}
-                      className="text-slate-600 dark:text-slate-300 hover:underline cursor-pointer"
-                    >
-                      {profile.phone}
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-medium">위치</div>
-                    <div className="text-slate-600 dark:text-slate-300">
-                      {profile.location}
-                    </div>
-                  </div>
-                </div>
+                <ContactInfo />
               </div>
             </div>
 
@@ -125,6 +87,51 @@ const Contact = () => {
 
 export default Contact;
 
+const ContactInfo = () => {
+  return (
+    <>
+      <div className="flex items-center space-x-4">
+        <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full flex items-center justify-center">
+          <Mail className="w-6 h-6 text-white" />
+        </div>
+        <div>
+          <div className="font-medium">이메일</div>
+          <div
+            onClick={() => onClickCopy(profile.email)}
+            className="text-slate-600 dark:text-slate-300 hover:underline cursor-pointer"
+          >
+            {profile.email}
+          </div>
+        </div>
+      </div>
+      <div className="flex items-center space-x-4">
+        <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
+          <Smartphone className="w-6 h-6 text-white" />
+        </div>
+        <div>
+          <div className="font-medium">전화번호</div>
+          <div
+            onClick={() => onClickCopy(profile.phone)}
+            className="text-slate-600 dark:text-slate-300 hover:underline cursor-pointer"
+          >
+            {profile.phone}
+          </div>
+        </div>
+      </div>
+      <div className="flex items-center space-x-4">
+        <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
+          <MapPin className="w-6 h-6 text-white" />
+        </div>
+        <div>
+          <div className="font-medium">위치</div>
+          <div className="text-slate-600 dark:text-slate-300">
+            {profile.location}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 const ContactForm = () => {
   const [state, handleSubmit] = useForm("mpwrdkjb");
   const [form, setForm] = useState({
