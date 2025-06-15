@@ -29,7 +29,14 @@ export const PROJECTS_DATA = [
     images: [
       "https://lh3.googleusercontent.com/d/16lpPxi5sH_FtyTneWcUjH9lpQHfQq7Ic",
     ],
-    tags: ["Next.js", "Typescript", "Tailwind", "rodin", "vercel"],
+    tags: [
+      "Next.js",
+      "Typescript",
+      "Tailwind",
+      "rodin",
+      "vercel",
+      "framer-motion",
+    ],
     github: "https://github.com/jinjuseo/westpearl",
     demo: "#",
     star_rate: 3,
