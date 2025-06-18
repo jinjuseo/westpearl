@@ -3,7 +3,7 @@ import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import { Mail, Download } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { openNewTab, toastify } from "@/utils/common";
+import { downloadFile, openNewTab, toastify } from "@/utils/common";
 import ContactButtons from "@/components/contact-buttons";
 import { profile } from "@/const/profile";
 
@@ -62,7 +62,9 @@ const Home = () => {
             <Button
               size="lg"
               variant="outline"
-              onClick={() => toastify("준비중입니다...")}
+              onClick={() =>
+                downloadFile("/이력서_서진주.pdf", "[이력서] 서진주.pdf")
+              }
             >
               <Download className="w-5 h-5 mr-2" />
               이력서 다운로드

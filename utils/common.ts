@@ -15,3 +15,12 @@ export const toastify = (text: string) => {
     position: "top-right",
   });
 };
+
+export const downloadFile = (href: string, fname: string) => {
+  const link = document.createElement("a");
+  link.href = href; // 예: '/files/sample.txt'
+  link.download = fname; // 다운로드될 파일 이름
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
