@@ -22,7 +22,7 @@ export default function Portfolio() {
         <BlogPreview />
       </section> */}
       <Contact />
-      <Footer />
+     
       <ToastContainer theme={theme} position="top-right" closeOnClick={false} />
     </div>
   );

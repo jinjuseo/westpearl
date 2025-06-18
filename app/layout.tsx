@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
 import Header from "./_components/Header";
+import Footer from "./_components/Footer";
 
 export const metadata: Metadata = {
   title: "westpearl.dev",
@@ -30,6 +31,7 @@ export default function RootLayout({
         >
           <Header />
           {children}
+          <Footer />
           <Analytics />
         </ThemeProvider>
       </body>
