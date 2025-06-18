@@ -1,8 +1,9 @@
-import type React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
+import Header from "./_components/Header";
+
 export const metadata: Metadata = {
   title: "westpearl.dev",
   description: "Created by jinjuseo",
@@ -27,6 +28,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Header />
           {children}
           <Analytics />
         </ThemeProvider>
