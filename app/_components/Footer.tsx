@@ -3,7 +3,7 @@ import { Separator } from "@/components/ui/separator";
 import ContactButtons from "@/components/contact-buttons";
 const Footer = () => {
   return (
-    <footer className="bg-slate-900 text-white py-12">
+    <footer className="bg-white dark:bg-slate-900  text-white py-12">
       <div className="container mx-auto px-4">
         <div className="text-center">
           <div className="text-2xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent mb-4">

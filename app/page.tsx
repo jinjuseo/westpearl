@@ -12,7 +12,10 @@ import { useTheme } from "next-themes";
 export default function Portfolio() {
   const { theme, setTheme } = useTheme();
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+    <div
+      id="main"
+      className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800"
+    >
       <Home />
       <About />
       <Skills />
@@ -22,7 +25,7 @@ export default function Portfolio() {
         <BlogPreview />
       </section> */}
       <Contact />
-     
+      <div id="portal-scroll-button"></div>
       <ToastContainer theme={theme} position="top-right" closeOnClick={false} />
     </div>
   );

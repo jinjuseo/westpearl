@@ -15,7 +15,7 @@ const Header = () => {
   const navigation = useMemo(() => {
     if (pathname === "/") {
       return <Navbar />;
-    } else {
+    } else if (pathname.startsWith("/blog") && pathname !== "/blog/create") {
       return <BlogNavbar />;
     }
   }, [pathname]);

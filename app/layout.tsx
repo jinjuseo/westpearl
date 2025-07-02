@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
-import Header from "./_components/Header";
 import Footer from "./_components/Footer";
+import dynamic from "next/dynamic";
+import Header from "./_components/Header";
 
 export const metadata: Metadata = {
   title: "westpearl.dev",
