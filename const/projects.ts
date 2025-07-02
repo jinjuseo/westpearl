@@ -22,6 +22,12 @@ const m_archive: string[] = [
   "1eBnSKEDVE-uuyfDcuwkV_xR8pTkfl2eu",
   "1jjb-T-DflH27jWBtrRqcArinNJo-Lfur",
 ];
+const mydart: string[] = [
+  "/mydart/mydart1.png",
+  "/mydart/mydart2.png",
+  "/mydart/mydart3.png",
+  "/mydart/mydart4.png",
+];
 export const PROJECTS_DATA = [
   {
     title: "westpearl.dev ",
@@ -41,7 +47,16 @@ export const PROJECTS_DATA = [
     demo: "#",
     star_rate: 3,
   },
-
+  {
+    title: "My Dart",
+    description: `[삼일피더블유씨엑셀러레이션센터] 
+       Next.js로 구축한 Dart 검색 간편화 서비스`,
+    images: mydart,
+    tags: ["Next.js", "Typescript", "Tailwind", "React-query", "MSW", "Azure"],
+    github: "private",
+    demo: "#",
+    star_rate: 4,
+  },
   {
     title: "K-SOX AI",
     description: `[삼일피더블유씨엑셀러레이션센터] 
