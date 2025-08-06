@@ -43,13 +43,19 @@ const Home = () => {
               Frontend Developer
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8 max-w-4xl mx-auto">
-            도전 속에서 재미를 찾고, 그 재미를 동력 삼아 몰입하는 프론트엔드
-            개발자입니다
+          <div className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8 max-w-4xl mx-auto min-h-20 break-words whitespace-pre-wrap">
+            {
+              "도전 속에서 재미를 찾고, 그 재미를 동력 삼아 몰입하는 프론트엔드 개발자입니다."
+            }
             <br />
-            새로운 기술이나 처음 접하는 문제를 마주할 때 가장 열정적으로 일할 수
-            있다고 믿습니다.
-          </p>
+            {
+              "새로운 기술이나 처음 접하는 문제를 마주할 때 가장 열정적으로 일할 수 있다고 믿으며, "
+            }
+            <strong className="break-words">
+              지속적인 학습을 통해 다양한 기술 환경에서 적응하고 성장하고
+              있습니다.
+            </strong>
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button
               onClick={() => openNewTab(`mailto:${profile.email}`)}

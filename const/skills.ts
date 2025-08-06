@@ -1,9 +1,10 @@
 export const frontend = [
-  { name: "React", level: 95 },
-  { name: "Next.js", level: 85 },
-  { name: "TypeScript", level: 88 },
-  { name: "Tailwind CSS", level: 92 },
-  { name: "React-Query, Zustand, Recoil", level: 90 },
+  // { name: "React", level: 95 },
+  { name: "Next.js", level: 80 },
+  { name: "TypeScript", level: 85 },
+  { name: "Tailwind CSS", level: 85 },
+  { name: "React-Query, Zustand, Recoil", level: 85 },
+  { name: "MUI (Material-UI), styled-components", level: 60 },
 ];
 export const tools = [
   { name: "GitHub Actions", level: 80 },
@@ -13,7 +14,7 @@ export const tools = [
   { name: "Vercel", level: 70 },
 ];
 export const collab = [
-  { name: "Git", level: 90 },
+  { name: "Git", level: 85 },
   { name: "Figma", level: 80 },
   { name: "Slack", level: 80 },
   { name: "Notion", level: 80 },

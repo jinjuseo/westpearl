@@ -97,7 +97,7 @@ const About = () => {
                 </div>
                 <div className="text-xs text-fuchsia-500">(2024.06.18)</div>
               </div>
-              <div className="text-center p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
+              <div className="text-center p-4 bg-slate-50 dark:bg-slate-800 rounded-lg line-through">
                 <div className="text-sm text-slate-600 dark:text-slate-300">
                   어학
                 </div>

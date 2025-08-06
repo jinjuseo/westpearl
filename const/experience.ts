@@ -2,7 +2,7 @@ export const EXPERIENCE_DATA = [
   {
     title: "Frontend Developer Intern",
     company: "삼일피더블유씨엑셀러레이션센터",
-    period: "2025.01 - Present",
+    period: "2025.01 - 2025.07",
     location: "서울, 대한민국",
     description:
       "K-SOX AI 프로젝트와 사내 디자인 시스템 개발에 참여하여 프론트엔드 전반을 담당했습니다.",

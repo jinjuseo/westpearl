@@ -24,9 +24,9 @@ const m_archive: string[] = [
 ];
 const mydart: string[] = [
   "/mydart/mydart1.png",
-  "/mydart/mydart2.png",
-  "/mydart/mydart3.png",
-  "/mydart/mydart4.png",
+  // "/mydart/mydart2.png",
+  // "/mydart/mydart3.png",
+  // "/mydart/mydart4.png",
 ];
 export const PROJECTS_DATA = [
   {
